@@ -32,7 +32,6 @@ class AeroExample extends StatelessWidget {
               Text('Display Small', style: AeroTypography.displaySmall),
               SizedBox(height: 24),
 
-              // --- Başlık Stilleri ---
               Text("Heading Styles", style: AeroTypography.h2),
               Divider(),
               Text('Heading 1', style: AeroTypography.h1),
@@ -66,7 +65,6 @@ class AeroExample extends StatelessWidget {
               ),
               SizedBox(height: 24),
 
-              // --- Özel Stiller ---
               Text("Special Text Styles", style: AeroTypography.h2),
               Divider(),
               Text('LABEL UPPERCASE', style: AeroTypography.labelUppercase),
@@ -83,9 +81,6 @@ class AeroExample extends StatelessWidget {
               ),
               const SizedBox(height: 16),
 
-              // --- Buton Örneği ---
-
-              // --- Veri Stilleri ---
               Text("Data Styles", style: AeroTypography.h2),
               const Divider(),
               Text('₺1,234.56', style: AeroTypography.price),
