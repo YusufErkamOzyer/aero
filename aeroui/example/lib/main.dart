@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:aeroui/aeroui.dart';
+import 'package:flutter_svg/svg.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,26 +36,18 @@ class AeroExample extends StatelessWidget {
         backgroundColor: ColorConstants.primary,
         foregroundColor: Colors.white,
       ),
-      body: ListView.builder(
-        padding: const EdgeInsets.all(16),
-        itemCount: spacings.length,
-        itemBuilder: (context, index) {
-          final (name, value) = spacings[index];
-
-          return Container(
-            margin: const EdgeInsets.symmetric(vertical: 12),
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: ColorConstants.surface,
-              border: Border.all(color: ColorConstants.border),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [],
-            ),
-          );
-        },
+      body: Container(
+        margin: const EdgeInsets.symmetric(vertical: 12),
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: ColorConstants.surface,
+          border: Border.all(color: ColorConstants.border),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [SvgPicture.asset('assets/icons/ic_tablet.svg')],
+        ),
       ),
     );
   }
