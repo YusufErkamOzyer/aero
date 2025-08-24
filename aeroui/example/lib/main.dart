@@ -31,7 +31,7 @@ class AeroExample extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorConstants.background,
       appBar: AppBar(
-        title: const Text("Spacing Showcase"),
+        title: const Text("Icon Showcase"),
         backgroundColor: ColorConstants.primary,
         foregroundColor: Colors.white,
       ),
@@ -51,31 +51,7 @@ class AeroExample extends StatelessWidget {
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "$name → ${value.toStringAsFixed(0)}dp",
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: ColorConstants.textPrimary,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Row(
-                  children: [
-                    Container(
-                      width: 40,
-                      height: 20,
-                      color: ColorConstants.secondary,
-                    ),
-                    SizedBox(width: value),
-                    Container(
-                      width: 40,
-                      height: 20,
-                      color: ColorConstants.error,
-                    ),
-                  ],
-                ),
-              ],
+              children: [],
             ),
           );
         },
