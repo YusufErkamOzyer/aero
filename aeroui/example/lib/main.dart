@@ -1,4 +1,3 @@
-import 'package:aeroui/utils/typography.dart';
 import 'package:flutter/material.dart';
 import 'package:aeroui/aeroui.dart';
 
@@ -20,74 +19,66 @@ class AeroExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final spacings = [
+      ("xxs", context.spacing.xxs),
+      ("xs", context.spacing.xs),
+      ("sm", context.spacing.sm),
+      ("md", context.spacing.md),
+      ("lg", context.spacing.lg),
+      ("xl", context.spacing.xl),
+      ("xxl", context.spacing.xxl),
+    ];
     return Scaffold(
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Text("Display Styles", style: AeroTypography.h2),
-              Divider(),
-              Text('Display Large', style: AeroTypography.displayLarge),
-              Text('Display Medium', style: AeroTypography.displayMedium),
-              Text('Display Small', style: AeroTypography.displaySmall),
-              SizedBox(height: 24),
+      backgroundColor: ColorConstants.background,
+      appBar: AppBar(
+        title: const Text("Spacing Showcase"),
+        backgroundColor: ColorConstants.primary,
+        foregroundColor: Colors.white,
+      ),
+      body: ListView.builder(
+        padding: const EdgeInsets.all(16),
+        itemCount: spacings.length,
+        itemBuilder: (context, index) {
+          final (name, value) = spacings[index];
 
-              Text("Heading Styles", style: AeroTypography.h2),
-              Divider(),
-              Text('Heading 1', style: AeroTypography.h1),
-              Text('Heading 2', style: AeroTypography.h2),
-              Text('Heading 3', style: AeroTypography.h3),
-              Text('Heading 4', style: AeroTypography.h4),
-              Text('Heading 5', style: AeroTypography.h5),
-              Text('Heading 6', style: AeroTypography.h6),
-              SizedBox(height: 24),
-
-              Text("Body Text Styles", style: AeroTypography.h2),
-              Divider(),
-              Text(
-                'Body Large: This is the larger body text typically used in articles or blog posts.',
-                style: AeroTypography.bodyLarge,
-              ),
-              SizedBox(height: 8),
-              Text(
-                'Body Medium: This is the standard and most commonly used body text size.',
-                style: AeroTypography.bodyMedium,
-              ),
-              SizedBox(height: 8),
-              Text(
-                'Body Small: This is small body text usually used for additional notes or less important information.',
-                style: AeroTypography.bodySmall,
-              ),
-              SizedBox(height: 8),
-              Text(
-                'Body Extra Small: The smallest body text is ideal for footnotes.',
-                style: AeroTypography.bodyExtraSmall,
-              ),
-              SizedBox(height: 24),
-
-              Text("Special Text Styles", style: AeroTypography.h2),
-              Divider(),
-              Text('LABEL UPPERCASE', style: AeroTypography.labelUppercase),
-              const SizedBox(height: 8),
-              Text('This is a caption.', style: AeroTypography.caption),
-              const SizedBox(height: 8),
-              Text('This is a helper text.', style: AeroTypography.helper),
-              const SizedBox(height: 16),
-              Text('This is a link', style: AeroTypography.link),
-              const SizedBox(height: 8),
-              Text(
-                'This is an error message.',
-                style: AeroTypography.errorMessage,
-              ),
-              const SizedBox(height: 16),
-
-              Text("Data Styles", style: AeroTypography.h2),
-              const Divider(),
-              Text('₺1,234.56', style: AeroTypography.price),
-              Text('€45.99', style: AeroTypography.currency),
-            ],
-          ),
-        ),
+          return Container(
+            margin: const EdgeInsets.symmetric(vertical: 12),
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: ColorConstants.surface,
+              border: Border.all(color: ColorConstants.border),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "$name → ${value.toStringAsFixed(0)}dp",
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: ColorConstants.textPrimary,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Row(
+                  children: [
+                    Container(
+                      width: 40,
+                      height: 20,
+                      color: ColorConstants.secondary,
+                    ),
+                    SizedBox(width: value),
+                    Container(
+                      width: 40,
+                      height: 20,
+                      color: ColorConstants.error,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }
